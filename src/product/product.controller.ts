@@ -1,4 +1,4 @@
-import { Controller, Get } from "@nestjs/common";
+import { Controller, Get, Render } from "@nestjs/common";
 import { ProductService } from "./product.service";
 
 @Controller("products")
@@ -6,8 +6,9 @@ export class ProductController {
     constructor(private productService: ProductService) {}
 
     @Get()
-    getProducts()
+    @Render("products")
+    async getProducts()
     {
-        return this.productService.findAll();
+        return {currentPath: "/products", products: await this.productService.findAll()};
     }
 }

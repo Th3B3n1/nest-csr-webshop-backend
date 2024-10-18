@@ -6,6 +6,7 @@ import { OrderModule } from './order/order.module';
 import { Addresses } from './entities/addresses.entity';
 import { Orders } from './entities/orders.entity';
 import { CreditCards } from './entities/creditcards.entity';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -22,7 +23,7 @@ import { CreditCards } from './entities/creditcards.entity';
     ProductModule,
     OrderModule
   ],
-  controllers: [],
+  controllers: [AppController],
   providers: [],
 })
 export class AppModule {}

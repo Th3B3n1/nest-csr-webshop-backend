@@ -3,9 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Products</title>
 </head>
 <body>
-    
+    <%- include("navbar.ejs") -%>
+    <% products.forEach((product) => { %>
+        <div class="flex font-serif">
+            <div class="flex-none w-52 relative">
+              <img src="./Intel_Core_2023_logo.png" alt="" class="absolute inset-0 w-full h-full object-cover rounded-lg" loading="lazy" />
+            </div>
+            <form class="flex-auto p-6">
+              <div class="flex flex-wrap items-baseline">
+                <h1 class="w-full flex-none mb-3 text-2xl leading-none text-slate-900">
+                    <%= product.name %>
+                </h1>
+                <div class="flex-auto text-lg font-medium text-slate-500">
+                    <%= product.price %>$
+                </div>
+                <div class="text-xs leading-6 font-medium uppercase text-slate-500">
+                  In stock
+                </div>
+              </div>
+              <div class="flex space-x-4 mb-5 text-sm font-medium">
+                <div class="flex-auto flex space-x-4 pr-4">
+                  <button class="flex-none w-1/2 h-12 uppercase font-medium tracking-wider bg-slate-900 text-white" type="submit">
+                    Buy now
+                  </button>
+                </div>
+              </div>
+              <p class="text-sm text-slate-500">
+                Free shipping internationally
+              </p>
+            </form>
+          </div>
+    <% }) %>
 </body>
 </html>

@@ -11,13 +11,13 @@ export class ProductService
         private productRepository: Repository<Products>,
     ) {}
 
-    findAll(): Promise<Products[]>
+    async findAll(): Promise<Products[]>
     {
-        return this.productRepository.find();
+        return await this.productRepository.find();
     }
 
-    findOne(id: number): Promise<Products | null>
+    async findOne(id: number): Promise<Products | null>
     {
-        return this.productRepository.findOneByOrFail({id});
+        return await this.productRepository.findOneByOrFail({id});
     }
 }

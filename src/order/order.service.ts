@@ -20,14 +20,14 @@ export class OrderService
         private productsService: ProductService
     ) {}
 
-    findAll(): Promise<Orders[]>
+    async findAll(): Promise<Orders[]>
     {
-        return this.orderRepository.find();
+        return await this.orderRepository.find();
     }
 
-    findOne(id: number): Promise<Orders | null>
+    async findOne(id: number): Promise<Orders | null>
     {
-        return this.orderRepository.findOneByOrFail({id});
+        return await this.orderRepository.findOneByOrFail({id});
     }
 
     async create(order: Order)
@@ -57,7 +57,7 @@ export class OrderService
             creditcards_id: creditcard,
             products_id: product
         });
-        return this.orderRepository.save(newOrder);
+        return await this.orderRepository.save(newOrder);
     }
     
 }
